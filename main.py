@@ -6,8 +6,8 @@ def add_movie(name):
     movie_file.write(name + "\n")
 
 def list_movies():
-    pass
-
+    movie_list = open("data/movies.txt","r").read()
+    return movie_list
 
 ################################################
 ################################################
@@ -38,6 +38,6 @@ async def on_message(message):
     #( Add list functionality )
     match = re.search(r"ch.list", msg_content)
     if match:
-        list_movies()
+        await message.channel.send(list_movies())
 
 client.run("TOKEN")
