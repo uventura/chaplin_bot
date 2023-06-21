@@ -32,10 +32,8 @@ async def on_message(message):
         movie = match.group(1)
         add_movie(movie)
 
-        adding_msg = f"Adding movie {movie}..."
-        await message.channel.send(adding_msg)
+        await message.add_reaction("👌")
 
-    #( Add list functionality )
     match = re.search(r"ch.list", msg_content)
     if match:
         await message.channel.send(list_movies())
